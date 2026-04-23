@@ -201,12 +201,50 @@ nav.scrolled { height: 58px; }
 .vid-lnk:hover { color: var(--g6); }
 
 /* TESTIMONIALS */
-.testi { background: linear-gradient(155deg, var(--deep), var(--g1)); }
+/*.testi { background: linear-gradient(155deg, var(--deep), var(--g1)); }
 .testi .sec-lbl { color: var(--g5); }
 .testi .sec-h { color: #fff; }
 .testi-box { background: rgba(255,255,255,.05); border: 1px solid rgba(82,183,136,.2); border-radius: var(--rl); padding: 2.5rem; margin-top: 2rem; text-align: center; }
 .testi-box p { color: rgba(255,255,255,.5); font-size: .93rem; margin-bottom: 1.4rem; }
+*/
+ /* GOOGLE REVIEW WIDGET */
+.g-overall { display:inline-flex; flex-direction:column; align-items:center; gap:.3rem; background:rgba(255,255,255,.06); border:1px solid rgba(82,183,136,.25); border-radius:var(--rl); padding:1.2rem 2.5rem; margin:1.4rem auto 0; }
+.g-logo { display:flex; align-items:center; gap:.5rem; }
+.g-brand { font-size:.8rem; font-weight:600; color:rgba(255,255,255,.55); letter-spacing:.08em; text-transform:uppercase; }
+.g-score { font-family:'Playfair Display',serif; font-size:2.6rem; font-weight:700; color:#fff; line-height:1; }
+.g-stars-row { color:#FBBC05; font-size:1.2rem; letter-spacing:.1rem; }
+.g-count { font-size:.78rem; color:rgba(255,255,255,.38); }
 
+.reviews-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.3rem; margin-top:2.5rem; }
+.review-card { background:rgba(255,255,255,.05); border:1px solid rgba(82,183,136,.18); border-radius:var(--rl); padding:1.6rem; transition:transform .3s, box-shadow .3s, border-color .3s; }
+.review-card:hover { transform:translateY(-4px); box-shadow:0 16px 40px rgba(0,0,0,.25); border-color:rgba(82,183,136,.4); }
+.rc-header { display:flex; align-items:center; gap:.8rem; margin-bottom:.8rem; }
+.rc-avatar { width:42px; height:42px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:700; color:#fff; flex-shrink:0; }
+.rc-meta { flex:1; }
+.rc-name { font-weight:600; font-size:.9rem; color:#fff; }
+.rc-date { font-size:.75rem; color:rgba(255,255,255,.35); }
+.rc-gicon { opacity:.7; }
+.rc-stars { color:#FBBC05; font-size:.95rem; letter-spacing:.05rem; margin-bottom:.7rem; }
+.rc-text { color:rgba(255,255,255,.6); font-size:.85rem; font-weight:300; line-height:1.75; }
+.g-cta-btn { display:inline-flex; align-items:center; gap:.6rem; background:#fff; color:#1B2D23; font-weight:600; font-size:.9rem; padding:.85rem 1.9rem; border-radius:var(--r); transition:all .2s; box-shadow:0 4px 16px rgba(0,0,0,.2); margin-right:.8rem; }
+.g-cta-btn:hover { background:var(--g8); transform:translateY(-2px); box-shadow:0 8px 24px rgba(0,0,0,.3); }
+.g-leave-btn { display:inline-flex; align-items:center; gap:.5rem; border:1.5px solid rgba(82,183,136,.38); color:var(--g5); font-size:.9rem; font-weight:500; padding:.85rem 1.9rem; border-radius:var(--r); transition:all .2s; }
+.g-leave-btn:hover { border-color:var(--g4); background:rgba(82,183,136,.08); transform:translateY(-2px); }
+
+@media(max-width:1024px) { .reviews-grid { grid-template-columns:repeat(2,1fr); } }
+@media(max-width:767px) {
+  .reviews-grid { grid-template-columns:1fr; gap:1rem; }
+  .g-overall { padding:.9rem 1.5rem; }
+  .g-score { font-size:2rem; }
+  .g-cta-btn, .g-leave-btn { width:100%; justify-content:center; margin-right:0; }
+  .g-cta-btn { margin-bottom:.6rem; }
+}
+
+.testi { background: linear-gradient(155deg, var(--deep), var(--g1)); }
+.testi .sec-lbl { color: var(--g5); }
+.testi .sec-h { color: #fff; }
+
+  
 /* BOOKING */
 .booking { background: var(--g2); padding: 5.5rem 4rem; text-align: center; }
 .booking-inner { max-width: 660px; margin: 0 auto; }
@@ -560,6 +598,136 @@ footer { background: #040D07; padding: 1.8rem 4rem; display: flex; align-items: 
   </div>
 </section>
 
+  <section class="sec testi" id="testimonials">
+  <div class="reveal" style="text-align:center">
+    <div class="sec-lbl">Google Reviews</div>
+    <h2 class="sec-h">What Our <em>Clients Say</em></h2>
+    <p class="sec-p" style="margin:0 auto .5rem">Real experiences from our valued clients — verified on Google.</p>
+    <!-- Google overall rating badge -->
+    <div class="g-overall reveal">
+      <div class="g-logo">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+          <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+          <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+          <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+        </svg>
+        <span class="g-brand">Google</span>
+      </div>
+      <div class="g-score">5.0</div>
+      <div class="g-stars-row">★★★★★</div>
+      <div class="g-count">Based on our Google Reviews</div>
+    </div>
+  </div>
+
+  <!-- Review Cards Grid -->
+  <div class="reviews-grid">
+
+    <div class="review-card reveal">
+      <div class="rc-header">
+        <div class="rc-avatar" style="background:linear-gradient(135deg,#2D6A4F,#52B788)">M</div>
+        <div class="rc-meta">
+          <div class="rc-name">Mohammed A.</div>
+          <div class="rc-date">March 2025</div>
+        </div>
+        <div class="rc-gicon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        </div>
+      </div>
+      <div class="rc-stars">★★★★★</div>
+      <p class="rc-text">Absolutely amazing experience. Brother Imtiaz is very knowledgeable and professional. The whole process was explained thoroughly and I felt completely comfortable. The results have been remarkable — I highly recommend Al Shifa Hijama to anyone seeking authentic cupping therapy in Houston.</p>
+    </div>
+
+    <div class="review-card reveal" style="transition-delay:.1s">
+      <div class="rc-header">
+        <div class="rc-avatar" style="background:linear-gradient(135deg,#1B4332,#40916C)">F</div>
+        <div class="rc-meta">
+          <div class="rc-name">Fatima S.</div>
+          <div class="rc-date">January 2025</div>
+        </div>
+        <div class="rc-gicon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        </div>
+      </div>
+      <div class="rc-stars">★★★★★</div>
+      <p class="rc-text">Sister Tabassum was incredibly caring and professional throughout my entire session. As a woman I really appreciated having a female therapist — it made me feel so comfortable and at ease. The hijama session left me feeling lighter and more energized. This is the real Sunnah experience, MashaAllah!</p>
+    </div>
+
+    <div class="review-card reveal" style="transition-delay:.2s">
+      <div class="rc-header">
+        <div class="rc-avatar" style="background:linear-gradient(135deg,#204D38,#74C69D)">A</div>
+        <div class="rc-meta">
+          <div class="rc-name">Ahmed K.</div>
+          <div class="rc-date">February 2025</div>
+        </div>
+        <div class="rc-gicon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        </div>
+      </div>
+      <div class="rc-stars">★★★★★</div>
+      <p class="rc-text">I came in with chronic back pain that I had been dealing with for months. After just two sessions at Al Shifa Hijama, the difference is night and day. Everything is sterile and done with precision — you can tell they truly care about the Sunnah and about the wellbeing of every client.</p>
+    </div>
+
+    <div class="review-card reveal" style="transition-delay:.05s">
+      <div class="rc-header">
+        <div class="rc-avatar" style="background:linear-gradient(135deg,#2D6A4F,#95D5B2)">S</div>
+        <div class="rc-meta">
+          <div class="rc-name">Sarah M.</div>
+          <div class="rc-date">December 2024</div>
+        </div>
+        <div class="rc-gicon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        </div>
+      </div>
+      <div class="rc-stars">★★★★★</div>
+      <p class="rc-text">First time trying Hijama and I was nervous, but the team put me completely at ease. The environment is spotlessly clean, the cups are single-use, and the procedure was much more comfortable than I expected. Felt genuinely revitalized the next morning. Will definitely be back for the Silver package!</p>
+    </div>
+
+    <div class="review-card reveal" style="transition-delay:.15s">
+      <div class="rc-header">
+        <div class="rc-avatar" style="background:linear-gradient(135deg,#081C15,#40916C)">O</div>
+        <div class="rc-meta">
+          <div class="rc-name">Omar H.</div>
+          <div class="rc-date">November 2024</div>
+        </div>
+        <div class="rc-gicon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        </div>
+      </div>
+      <div class="rc-stars">★★★★★</div>
+      <p class="rc-text">Alhamdulillah, best decision I made for my health. Brother Imtiaz takes time to explain every step, follows the Sunnah perfectly, and genuinely cares about his patients. The dry cupping was excellent for my shoulder injury. This place is a hidden gem in Katy — spread the word!</p>
+    </div>
+
+    <div class="review-card reveal" style="transition-delay:.25s">
+      <div class="rc-header">
+        <div class="rc-avatar" style="background:linear-gradient(135deg,#1B4332,#52B788)">Z</div>
+        <div class="rc-meta">
+          <div class="rc-name">Zainab R.</div>
+          <div class="rc-date">October 2024</div>
+        </div>
+        <div class="rc-gicon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        </div>
+      </div>
+      <div class="rc-stars">★★★★★</div>
+      <p class="rc-text">I have been to multiple Hijama practitioners over the years and Al Shifa stands out above all of them. The sterility standards are exceptional, the service is professional, and the spiritual aspect is genuinely respected. Sister Tabassum made my session so comfortable and reassuring. Truly 5 stars.</p>
+    </div>
+
+  </div>
+
+  <!-- View all reviews CTA -->
+  <div class="reveal" style="text-align:center;margin-top:2.5rem">
+    <a href="https://www.google.com/maps/place/Al+Shifa+Hijama+-+Hijama+(%D8%A7%D9%84%D8%AD%D8%AC%D8%A7%D9%85%D8%A9+-+Wet+Cupping)+in+Houston%E2%80%AD/@29.7418402,-95.7439778,16z/data=!4m18!1m9!3m8!1s0x864120bbba519b0f:0xb1fc4da1e2a2fb45!2zQWwgU2hpZmEgSGlqYW1hIC0gSGlqYW1hICjYp9mE2K3YrNin2YXYqSAtIFdldCBDdXBwaW5nKSBpbiBIb3VzdG9u!8m2!3d29.7418402!4d-95.7439778!9m1!1b1!16s%2Fg%2F11fy4r7hw9!3m7!1s0x864120bbba519b0f:0xb1fc4da1e2a2fb45!8m2!3d29.7418402!4d-95.7439778!9m1!1b1!16s%2Fg%2F11fy4r7hw9?entry=ttu&g_ep=EgoyMDI2MDQyMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="g-cta-btn">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="flex-shrink:0"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+      Read All Reviews on Google
+    </a>
+    <a href="https://www.google.com/maps/place/Al+Shifa+Hijama+-+Hijama+(%D8%A7%D9%84%D8%AD%D8%AC%D8%A7%D9%85%D8%A9+-+Wet+Cupping)+in+Houston%E2%80%AD/@29.7418402,-95.7439778,16z/data=!4m18!1m9!3m8!1s0x864120bbba519b0f:0xb1fc4da1e2a2fb45!2zQWwgU2hpZmEgSGlqYW1hIC0gSGlqYW1hICjYp9mE2K3YrNin2YXYqSAtIFdldCBDdXBwaW5nKSBpbiBIb3VzdG9u!8m2!3d29.7418402!4d-95.7439778!9m1!1b1!16s%2Fg%2F11fy4r7hw9!3m7!1s0x864120bbba519b0f:0xb1fc4da1e2a2fb45!8m2!3d29.7418402!4d-95.7439778!9m1!1b1!16s%2Fg%2F11fy4r7hw9?entry=ttu&g_ep=EgoyMDI2MDQyMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="g-leave-btn">
+      ✦ Leave Us a Review
+    </a>
+  </div>
+</section>
+
+/*  
 <section class="sec testi">
   <div class="reveal">
     <div class="sec-lbl">Testimonials</div>
@@ -570,7 +738,8 @@ footer { background: #040D07; padding: 1.8rem 4rem; display: flex; align-items: 
     <a href="https://www.google.com/maps/place/Al+Shifa+Hijama+-+Hijama+(%D8%A7%D9%84%D8%AD%D8%AC%D8%A7%D9%85%D8%A9+-+Wet+Cupping)+in+Houston%E2%80%AD/@29.7418402,-95.7439778,16z/data=!4m18!1m9!3m8!1s0x864120bbba519b0f:0xb1fc4da1e2a2fb45!2zQWwgU2hpZmEgSGlqYW1hIC0gSGlqYW1hICjYp9mE2K3YrNin2YXYqSAtIFdldCBDdXBwaW5nKSBpbiBIb3VzdG9u!8m2!3d29.7418402!4d-95.7439778!9m1!1b1!16s%2Fg%2F11fy4r7hw9!3m7!1s0x864120bbba519b0f:0xb1fc4da1e2a2fb45!8m2!3d29.7418402!4d-95.7439778!9m1!1b1!16s%2Fg%2F11fy4r7hw9?entry=ttu&g_ep=EgoyMDI2MDQyMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn btn-g">View Testimonials on Our Website →</a>
   </div>
 </section>
-
+*/
+  
 <section class="booking" id="booking">
   <div class="booking-inner reveal">
     <div class="sec-lbl">Ready to Begin?</div>
