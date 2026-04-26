@@ -743,7 +743,7 @@ input[type="date"].appt-input { color-scheme: dark; }
     <p class="hero-sub">Certified practitioners in traditional wet cupping and dry cupping — rooted in Sunnah, backed by clinical expertise.</p>
     <p class="hero-loc">📍 Katy, Houston · Sugar Land · Cypress · Pearland &amp; surrounding areas</p>
     <div class="hero-btns">
-      <a href="https://forms.gle/oDqyEkoC8GcHoTTp6" class="btn btn-g" target="_blank">📋 Book Online</a>
+      <button class="btn btn-g" onclick="openBooking()">📋 Book Online</button>
       <a href="https://wa.me/12816668182" class="btn btn-wa" target="_blank">💬 WhatsApp</a>
       <a href="tel:2816668182" class="btn btn-out">📞 (281) 666-8182</a>
     </div>
@@ -791,7 +791,8 @@ input[type="date"].appt-input { color-scheme: dark; }
         <p>Each session uses both wet and dry cupping for optimal results. 7–9 wet cups for first-time clients, supplemented by 8–10 dry cups.</p>
         <div class="price-row">
           <div class="price">$99 <span>/ session</span></div>
-          <a href="https://forms.gle/oDqyEkoC8GcHoTTp6" class="btn btn-g" target="_blank">Book Now</a>
+          
+          <button class="btn btn-g" onclick="openBooking('Hijama (Wet Cupping) - $99')">Book Now</button>
         </div>
       </div>
     </div>
@@ -809,7 +810,7 @@ input[type="date"].appt-input { color-scheme: dark; }
         <p>Utilizing specialized medical-grade polymer cups via suction machine. 15–18 cups precisely applied per session.</p>
         <div class="price-row">
           <div class="price">$89 <span>/ session</span></div>
-          <a href="https://forms.gle/oDqyEkoC8GcHoTTp6" class="btn btn-g" target="_blank">Book Now</a>
+          <button class="btn btn-g" onclick="openBooking('Dry Cupping - $89')">Book Now</button>
         </div>
       </div>
     </div>
@@ -826,23 +827,23 @@ input[type="date"].appt-input { color-scheme: dark; }
     <div class="pkg reveal">
       <div class="pkg-nm">Dry Cupping</div><div class="pkg-pr">$89</div><div class="pkg-dur">Single session</div>
       <ul class="pkg-ul"><li>15–18 cups applied</li><li>Myofascial decompression</li><li>Great for beginners</li><li>Non-invasive</li></ul>
-      <a href="https://forms.gle/oDqyEkoC8GcHoTTp6" class="pkg-btn" target="_blank">Book Now</a>
+      <button class="pkg-btn" onclick="openBooking('Dry Cupping - $89')">Book Now</button>
     </div>
     <div class="pkg reveal" style="transition-delay:.08s">
       <div class="pkg-nm">Hijama (Wet Cupping)</div><div class="pkg-pr">$99</div><div class="pkg-dur">Single session</div>
       <ul class="pkg-ul"><li>Wet + dry combo</li><li>7–9 wet cups (first time) + few dry cups</li><li>Full detoxification</li><li>Immune system boost</li></ul>
-      <a href="https://forms.gle/oDqyEkoC8GcHoTTp6" class="pkg-btn" target="_blank">Book Now</a>
+      <button class="pkg-btn" onclick="openBooking('Hijama (Wet Cupping) - $99')">Book Now</button>
     </div>
     <div class="pkg hot reveal" style="transition-delay:.16s">
       <div class="pkg-pill">Most Popular</div>
       <div class="pkg-nm">Silver Package</div><div class="pkg-pr">$459</div><div class="pkg-dur">5 sessions in 10 months</div>
       <ul class="pkg-ul"><li>Holistic recovery plan</li><li>Consistent body maintenance</li><li>Internal balance support</li><li>Best value savings</li></ul>
-      <a href="https://forms.gle/oDqyEkoC8GcHoTTp6" class="pkg-btn" target="_blank">Book Now</a>
+      <button class="pkg-btn" onclick="openBooking('Silver Package - $459')">Book Now</button>
     </div>
     <div class="pkg reveal" style="transition-delay:.24s">
       <div class="pkg-nm">Gold Package</div><div class="pkg-pr">$900</div><div class="pkg-dur">10 sessions in 18 months</div>
       <ul class="pkg-ul"><li>Ultimate wellness plan</li><li>Peak recovery &amp; detox</li><li>Long-term vitality</li><li>Maximum benefit</li></ul>
-      <a href="https://forms.gle/oDqyEkoC8GcHoTTp6" class="pkg-btn" target="_blank">Book Now</a>
+      <button class="pkg-btn" onclick="openBooking('Gold Package - $900')">Book Now</button>
     </div>
   </div>
 </section>
@@ -1392,6 +1393,32 @@ const ENTRY = {
   reason:    "entry.265277855" 
 };
 
+function openBooking(packageValue) {
+  // Scroll to booking section and open the collapsible panel
+  const section = document.getElementById("booking");
+  section.scrollIntoView({ behavior: "smooth", block: "start" });
+
+  // Open the panel if not already open
+  setTimeout(() => {
+    const panel  = document.getElementById("appt-panel");
+    const toggle = document.getElementById("appt-toggle");
+    if (!panel.classList.contains("open")) {
+      panel.classList.add("open");
+      panel.setAttribute("aria-hidden", "false");
+      toggle.setAttribute("aria-expanded", "true");
+    }
+    // Pre-select the package in the dropdown if provided
+    if (packageValue) {
+      const select = document.getElementById("f-package");
+      if (select) select.value = packageValue;
+    }
+    // Scroll panel into view after it opens
+    setTimeout(() => {
+      panel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }, 300);
+  }, 400);
+}
+  
 function toggleAppt() {
   const panel  = document.getElementById("appt-panel");
   const toggle = document.getElementById("appt-toggle");
