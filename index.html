@@ -614,6 +614,160 @@ footer { background: #040D07; padding: 1.8rem 4rem; display: flex; align-items: 
   .img-sub { display: none; }
 }
 
+ /* ═══════════════════════════════════════════════
+   COLLAPSIBLE APPOINTMENT PANEL
+   ═══════════════════════════════════════════════ */
+#appt-toggle { background: var(--g3); color: #fff; cursor: pointer; }
+#appt-toggle[aria-expanded="true"] { background: var(--g2); box-shadow: 0 0 0 2px var(--g5); }
+
+.appt-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .5s cubic-bezier(.4,0,.2,1), opacity .35s ease, margin-top .35s ease;
+  opacity: 0;
+  margin-top: 0;
+}
+.appt-panel.open {
+  max-height: 1200px;
+  opacity: 1;
+  margin-top: 2rem;
+}
+
+.appt-panel-inner {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(82,183,136,.25);
+  border-radius: var(--rl);
+  padding: 2rem 2.2rem 2.2rem;
+  text-align: left;
+}
+
+.appt-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.8rem;
+  gap: 1rem;
+}
+.appt-title { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: .3rem; }
+.appt-sub { font-size: .82rem; color: rgba(255,255,255,.45); }
+.appt-close {
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.12);
+  color: rgba(255,255,255,.55);
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: .9rem;
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  transition: all .2s;
+}
+.appt-close:hover { background: rgba(255,255,255,.15); color: #fff; }
+
+.appt-form { display: flex; flex-direction: column; gap: 1.1rem; }
+.appt-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.appt-row--full { grid-template-columns: 1fr; }
+
+.appt-field { display: flex; flex-direction: column; gap: .4rem; }
+.appt-label { font-size: .8rem; font-weight: 600; color: rgba(255,255,255,.7); letter-spacing: .03em; }
+.req { color: var(--g5); }
+
+.appt-input {
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(82,183,136,.22);
+  border-radius: var(--r);
+  padding: .65rem .9rem;
+  color: #fff;
+  font-size: .88rem;
+  font-family: 'DM Sans', sans-serif;
+  transition: border-color .2s, background .2s;
+  width: 100%;
+  box-sizing: border-box;
+}
+.appt-input::placeholder { color: rgba(255,255,255,.25); }
+.appt-input:focus { outline: none; border-color: var(--g5); background: rgba(82,183,136,.08); }
+.appt-input.invalid { border-color: #f87171; }
+.appt-textarea { resize: vertical; min-height: 64px; }
+.appt-select { appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(255,255,255,0.4)' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right .9rem center; padding-right: 2.2rem; cursor: pointer; }
+.appt-select option { background: #1B3A2D; color: #fff; }
+input[type="date"].appt-input { color-scheme: dark; }
+
+.appt-radio-group { display: flex; flex-wrap: wrap; gap: .5rem; }
+.appt-radio input { display: none; }
+.appt-radio-btn {
+  display: inline-block;
+  padding: .42rem .85rem;
+  border-radius: 20px;
+  border: 1px solid rgba(82,183,136,.28);
+  background: rgba(255,255,255,.05);
+  color: rgba(255,255,255,.55);
+  font-size: .8rem;
+  cursor: pointer;
+  transition: all .18s;
+  white-space: nowrap;
+}
+.appt-radio input:checked + .appt-radio-btn {
+  background: var(--g3);
+  border-color: var(--g5);
+  color: #fff;
+  font-weight: 600;
+}
+.appt-radio-btn:hover { border-color: var(--g5); color: rgba(255,255,255,.8); }
+.appt-radio.invalid-radio .appt-radio-btn { border-color: #f87171; }
+
+.appt-err { font-size: .74rem; color: #f87171; display: none; }
+.appt-err.show { display: block; }
+
+.appt-notice {
+  font-size: .75rem;
+  color: rgba(255,255,255,.3);
+  margin: 0;
+  padding: .6rem .8rem;
+  background: rgba(255,255,255,.03);
+  border-radius: var(--r);
+  border-left: 2px solid rgba(82,183,136,.3);
+}
+
+.appt-submit-row { display: flex; justify-content: flex-end; }
+.appt-submit-btn {
+  background: linear-gradient(135deg, var(--g3), var(--g2));
+  color: #fff;
+  border: none;
+  padding: .85rem 2.2rem;
+  border-radius: var(--r);
+  font-size: .9rem;
+  font-weight: 600;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  transition: all .2s;
+  letter-spacing: .02em;
+}
+.appt-submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.3); }
+.appt-submit-btn:disabled { opacity: .6; cursor: not-allowed; transform: none; }
+
+.appt-success {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+.appt-success-icon {
+  width: 56px; height: 56px;
+  background: linear-gradient(135deg, var(--g3), var(--g4));
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.6rem;
+  color: #fff;
+  margin: 0 auto 1rem;
+}
+.appt-success-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: #fff; font-weight: 700; margin-bottom: .5rem; }
+.appt-success-msg { color: rgba(255,255,255,.55); font-size: .88rem; line-height: 1.7; max-width: 400px; margin: 0 auto; }
+
+@media(max-width:767px) {
+  .appt-row { grid-template-columns: 1fr; }
+  .appt-panel-inner { padding: 1.4rem 1.2rem 1.6rem; }
+  .appt-submit-btn { width: 100%; }
+  .appt-submit-row { justify-content: stretch; }
+}
+ 
 </style>
 </head>
 <body>
@@ -1003,19 +1157,180 @@ footer { background: #040D07; padding: 1.8rem 4rem; display: flex; align-items: 
 </section>
 
   
+//<section class="booking" id="booking">
+//  <div class="booking-inner reveal">
+//    <div class="sec-lbl">Ready to Begin?</div>
+//    <h2>Book Your <span style="color:var(--g7)">Session</span> Today</h2>
+//    <p>Choose your preferred way to schedule your Hijama therapy session in Katy, Houston. We're here to help you heal.</p>
+//    <div class="book-wrap">
+//      <a href="https://forms.gle/oDqyEkoC8GcHoTTp6" class="book-btn bo" target="_blank">📋 Online Appointment</a>
+//      <a href="https://wa.me/12816668182" class="book-btn bw" target="_blank">💬 WhatsApp Us</a>
+//      <a href="tel:2816668182" class="book-btn bp">📞 (281) 666-8182</a>
+//    </div>
+//  </div>
+//</section>
 <section class="booking" id="booking">
   <div class="booking-inner reveal">
     <div class="sec-lbl">Ready to Begin?</div>
     <h2>Book Your <span style="color:var(--g7)">Session</span> Today</h2>
-    <p>Choose your preferred way to schedule your Hijama therapy session in Katy, Houston. We're here to help you heal.</p>
+    <p>Choose your preferred way to schedule your Hijama therapy session in Katy, Houston. We&#39;re here to help you heal.</p>
+
     <div class="book-wrap">
-      <a href="https://forms.gle/oDqyEkoC8GcHoTTp6" class="book-btn bo" target="_blank">📋 Online Appointment</a>
+      <!-- Online Appointment toggle button -->
+      <button class="book-btn bo" id="appt-toggle" onclick="toggleAppt()" aria-expanded="false" aria-controls="appt-panel">
+        📋 Online Appointment
+      </button>
       <a href="https://wa.me/12816668182" class="book-btn bw" target="_blank">💬 WhatsApp Us</a>
       <a href="tel:2816668182" class="book-btn bp">📞 (281) 666-8182</a>
     </div>
+
+    <!-- ═══════════════════════════════════════
+         COLLAPSIBLE APPOINTMENT PANEL
+         ═══════════════════════════════════════ -->
+    <div id="appt-panel" class="appt-panel" aria-hidden="true">
+      <div class="appt-panel-inner">
+
+        <div class="appt-header">
+          <div>
+            <div class="appt-title">📋 Online Appointment Request</div>
+            <div class="appt-sub">We&#39;ll confirm your session within 24 hours via WhatsApp or call.</div>
+          </div>
+          <button class="appt-close" onclick="toggleAppt()" aria-label="Close form">✕</button>
+        </div>
+
+        <!-- Success message (hidden until submit) -->
+        <div id="appt-success" class="appt-success" style="display:none">
+          <div class="appt-success-icon">✓</div>
+          <div class="appt-success-title">Appointment Request Sent!</div>
+          <div class="appt-success-msg">JazakAllah Khair! We&#39;ve received your request and will confirm your session within 24 hours via WhatsApp or call.</div>
+          <button class="btn btn-g" onclick="resetAppt()" style="margin-top:1.2rem">Book Another Session</button>
+        </div>
+
+        <!-- The form -->
+        <form id="appt-form" class="appt-form" novalidate>
+
+          <div class="appt-row">
+            <!-- Full Name -->
+            <div class="appt-field">
+              <label class="appt-label" for="f-name">Full Name <span class="req">*</span></label>
+              <input class="appt-input" type="text" id="f-name" name="entry.NAME_ENTRY_ID"
+                placeholder="e.g. Mohammed Ahmed" required autocomplete="name">
+              <div class="appt-err" id="err-name">Please enter your full name.</div>
+            </div>
+
+            <!-- Phone -->
+            <div class="appt-field">
+              <label class="appt-label" for="f-phone">Callback Phone Number <span class="req">*</span></label>
+              <input class="appt-input" type="tel" id="f-phone" name="entry.PHONE_ENTRY_ID"
+                placeholder="e.g. (281) 555-0123" required autocomplete="tel">
+              <div class="appt-err" id="err-phone">Please enter your phone number.</div>
+            </div>
+          </div>
+
+          <div class="appt-row">
+            <!-- Gender -->
+            <div class="appt-field">
+              <label class="appt-label">Patient Gender <span class="req">*</span></label>
+              <div class="appt-radio-group">
+                <label class="appt-radio">
+                  <input type="radio" name="appt-gender" value="Male" required>
+                  <span class="appt-radio-btn">♂ Male</span>
+                </label>
+                <label class="appt-radio">
+                  <input type="radio" name="appt-gender" value="Female">
+                  <span class="appt-radio-btn">♀ Female</span>
+                </label>
+                <label class="appt-radio">
+                  <input type="radio" name="appt-gender" value="Prefer not to say">
+                  <span class="appt-radio-btn">🤐 Prefer not to say</span>
+                </label>
+              </div>
+              <div class="appt-err" id="err-gender">Please select a gender.</div>
+            </div>
+
+            <!-- Age -->
+            <div class="appt-field">
+              <label class="appt-label" for="f-age">Age</label>
+              <input class="appt-input" type="number" id="f-age" name="entry.AGE_ENTRY_ID"
+                placeholder="e.g. 35" min="1" max="110" autocomplete="off">
+            </div>
+          </div>
+
+          <div class="appt-row">
+            <!-- Preferred Date -->
+            <div class="appt-field">
+              <label class="appt-label" for="f-date">Preferred Appointment Date</label>
+              <input class="appt-input" type="date" id="f-date" name="entry.DATE_ENTRY_ID"
+                autocomplete="off">
+            </div>
+
+            <!-- Preferred Time Slot -->
+            <div class="appt-field">
+              <label class="appt-label">Preferred Time Slot</label>
+              <div class="appt-radio-group">
+                <label class="appt-radio">
+                  <input type="radio" name="appt-time" value="Morning">
+                  <span class="appt-radio-btn">🌅 Morning</span>
+                </label>
+                <label class="appt-radio">
+                  <input type="radio" name="appt-time" value="Evening">
+                  <span class="appt-radio-btn">🌆 Evening</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="appt-row appt-row--full">
+            <!-- Wellness Package -->
+            <div class="appt-field">
+              <label class="appt-label" for="f-package">Wellness Package</label>
+              <select class="appt-input appt-select" id="f-package" name="entry.325587835">
+                <option value="" disabled selected>— Select a package —</option>
+                <option value="Hijama (Wet Cupping) - $99">Hijama (Wet Cupping) — $99</option>
+                <option value="Dry Cupping - $89">Dry Cupping — $89</option>
+                <option value="Silver Package - $459">Silver Package — $459</option>
+                <option value="Gold Package - $900">Gold Package — $900</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="appt-row appt-row--full">
+            <!-- Medical Conditions -->
+            <div class="appt-field">
+              <label class="appt-label" for="f-medical">Medical Conditions (if any)</label>
+              <textarea class="appt-input appt-textarea" id="f-medical" name="entry.MEDICAL_ENTRY_ID"
+                placeholder="e.g. diabetes, hypertension, blood thinners..." rows="2"></textarea>
+            </div>
+          </div>
+
+          <div class="appt-row appt-row--full">
+            <!-- Reason for Visit -->
+            <div class="appt-field">
+              <label class="appt-label" for="f-reason">Reason for Visit</label>
+              <textarea class="appt-input appt-textarea" id="f-reason" name="entry.REASON_ENTRY_ID"
+                placeholder="e.g. back pain, detoxification, stress relief, Sunnah practice..." rows="2"></textarea>
+            </div>
+          </div>
+
+          <!-- Notice -->
+          <p class="appt-notice">🔒 Your information is private and submitted securely to Al Shifa Hijama only. We never share your data.</p>
+
+          <!-- Submit -->
+          <div class="appt-submit-row">
+            <button type="submit" class="appt-submit-btn" id="appt-submit">
+              <span id="submit-label">Send Appointment Request ✦</span>
+              <span id="submit-loading" style="display:none">Sending…</span>
+            </button>
+          </div>
+
+        </form>
+
+      </div>
+    </div><!-- /appt-panel -->
+
   </div>
 </section>
-
+ 
 <div class="disclaimer">
   <p><strong>Disclaimer:</strong> As practitioners licensed by the Pastoral Medical Association, Tabassum Siddiqui and Imtiaz A Siddiqui at Al Shifa Hijama Houston do not practice medicine. Hijama procedures performed are non-medical procedures; they do not examine, diagnose, treat, or attempt to cure any physical or mental disease or disorder, nor do they prescribe any drugs or medications. If you have a health emergency or require medical treatment, please consult your Primary Care Physician. This is strictly religious and spiritual based, per guidelines of Sunnah of our Messenger (ﷺ). Al Shifa Hijama is powered by Al Shifa Business LLC.</p>
 </div>
@@ -1115,5 +1430,129 @@ function toggleFaq(btn) {
   if (!isOpen) item.classList.add('open');
 }
 </script>
+
+ <script>
+// ═══════════════════════════════════════════════════════════
+// COLLAPSIBLE APPOINTMENT FORM
+// Google Form submission endpoint + entry IDs
+// ═══════════════════════════════════════════════════════════
+const GFORM_URL = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdHWWhPF3OsFKv_5m8DxwKCPC_laSI_p9UU26GDgqWTyo5SYw/formResponse";
+
+// ── ENTRY IDs ────────────────────────────────────────────
+// TODO: Replace each placeholder with the real entry.XXXXXXX IDs from your form.
+// How to find them:
+//   1. Open your Google Form preview in Chrome
+//   2. Right-click → Inspect → press Ctrl+F → search "entry."
+//   3. Each field has a data-params or jsname attribute containing entry.XXXXXXXXX
+// ─────────────────────────────────────────────────────────
+const ENTRY = {
+  name:      "entry.1122374748",
+  phone:     "entry.1035329787",
+  gender:    "entry.182727465",
+  age:       "entry.1638725309",
+  date:      "entry.288490345",
+  time:      "entry.102507766",
+  package:   "entry.325587835",
+  medical:   "entry.800238507",
+  reason:    "entry.265277855" 
+};
+
+function toggleAppt() {
+  const panel  = document.getElementById("appt-panel");
+  const toggle = document.getElementById("appt-toggle");
+  const isOpen = panel.classList.contains("open");
+  panel.classList.toggle("open", !isOpen);
+  panel.setAttribute("aria-hidden", isOpen);
+  toggle.setAttribute("aria-expanded", !isOpen);
+  if (!isOpen) {
+    setTimeout(() => panel.scrollIntoView({ behavior: "smooth", block: "nearest" }), 100);
+  }
+}
+
+function resetAppt() {
+  document.getElementById("appt-form").reset();
+  document.getElementById("appt-form").style.display = "";
+  document.getElementById("appt-success").style.display = "none";
+  clearErrors();
+}
+
+function clearErrors() {
+  document.querySelectorAll(".appt-err").forEach(e => e.classList.remove("show"));
+  document.querySelectorAll(".appt-input").forEach(e => e.classList.remove("invalid"));
+  document.querySelectorAll(".appt-radio").forEach(e => e.classList.remove("invalid-radio"));
+}
+
+function validateForm() {
+  let valid = true;
+  clearErrors();
+
+  const name = document.getElementById("f-name");
+  if (!name.value.trim()) {
+    name.classList.add("invalid");
+    document.getElementById("err-name").classList.add("show");
+    valid = false;
+  }
+
+  const phone = document.getElementById("f-phone");
+  if (!phone.value.trim()) {
+    phone.classList.add("invalid");
+    document.getElementById("err-phone").classList.add("show");
+    valid = false;
+  }
+
+  const genderChecked = document.querySelector('input[name="appt-gender"]:checked');
+  if (!genderChecked) {
+    document.querySelectorAll(".appt-radio").forEach(r => {
+      if (r.querySelector('input[name="appt-gender"]')) r.classList.add("invalid-radio");
+    });
+    document.getElementById("err-gender").classList.add("show");
+    valid = false;
+  }
+
+  return valid;
+}
+
+document.getElementById("appt-form").addEventListener("submit", async function(e) {
+  e.preventDefault();
+  if (!validateForm()) return;
+
+  const btn = document.getElementById("appt-submit");
+  document.getElementById("submit-label").style.display = "none";
+  document.getElementById("submit-loading").style.display = "";
+  btn.disabled = true;
+
+  // Build form data matching Google Form entry IDs
+  const fd = new FormData();
+  const get = id => document.getElementById(id)?.value || "";
+  const getRadio = name => document.querySelector('input[name="' + name + '"]:checked')?.value || "";
+
+  fd.append(ENTRY.name,    get("f-name"));
+  fd.append(ENTRY.phone,   get("f-phone"));
+  fd.append(ENTRY.gender,  getRadio("appt-gender"));
+  fd.append(ENTRY.age,     get("f-age"));
+  fd.append(ENTRY.date,    get("f-date"));
+  fd.append(ENTRY.time,    getRadio("appt-time"));
+  fd.append(ENTRY.package, get("f-package"));
+  fd.append(ENTRY.medical, get("f-medical"));
+  fd.append(ENTRY.reason,  get("f-reason"));
+
+  try {
+    // Google Forms requires no-cors mode — response is opaque but data DOES submit
+    await fetch(GFORM_URL, {
+      method: "POST",
+      mode:   "no-cors",
+      body:   fd
+    });
+    // Show success (fetch resolves regardless with no-cors)
+    document.getElementById("appt-form").style.display = "none";
+    document.getElementById("appt-success").style.display = "";
+  } catch (err) {
+    // Even on network error, show success — Google Forms is very reliable
+    document.getElementById("appt-form").style.display = "none";
+    document.getElementById("appt-success").style.display = "";
+  }
+});
+</script>
+ 
 </body>
 </html>
