@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- ═══════════════════════════════════════════════════════
+       HOMEPAGE (root)
+       ═══════════════════════════════════════════════════════ -->
+  <url>
+    <loc>https://www.alshifahijama.com/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+
+    <!-- Images on the page — helps Google index them in image search -->
+    <image:image>
+      <image:loc>https://www.alshifahijama.com/images/AlShifaLogo3D.JPG</image:loc>
+      <image:title>Al Shifa Hijama Logo — Hijama &amp; Cupping Therapy Katy Houston TX</image:title>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://www.alshifahijama.com/images/WetCupping.png</image:loc>
+      <image:title>Hijama Wet Cupping Therapy — Al Shifa Hijama Houston TX</image:title>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://www.alshifahijama.com/images/DryCupping.png</image:loc>
+      <image:title>Dry Cupping Therapy — Al Shifa Hijama Katy Houston TX</image:title>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://www.alshifahijama.com/images/HijamaMaleTherapist.JPG</image:loc>
+      <image:title>Certified Male Hijama Therapist — Al Shifa Hijama Houston TX</image:title>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://www.alshifahijama.com/images/HijamaFemalTherapist.PNG</image:loc>
+      <image:title>Licensed Female Hijama Therapist — Al Shifa Hijama Houston TX</image:title>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://www.alshifahijama.com/images/StopMedicine.JPG</image:loc>
+      <image:title>Natural Holistic Healing — Al Shifa Hijama Katy Houston TX</image:title>
+    </image:image>
+
+  </url>
+
+  <!-- ═══════════════════════════════════════════════════════
+       SECTION ANCHORS
+       These help search engines understand your page sections.
+       Bing and Google both recognise anchor URLs for indexing.
+       ═══════════════════════════════════════════════════════ -->
+
+  <url>
+    <loc>https://www.alshifahijama.com/#services</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.alshifahijama.com/#packages</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.alshifahijama.com/#about</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.alshifahijama.com/#process</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.alshifahijama.com/#aftercare</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.alshifahijama.com/#testimonials</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.alshifahijama.com/#booking</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+</urlset>
