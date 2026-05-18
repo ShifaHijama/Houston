@@ -6,10 +6,10 @@
   var FLOWS = {
     start: {
       bot: 'As-salamu alaykum! Welcome to Al Shifa Hijama.\n\nHow can I help you today?',
-      replies: ['Book a Session','Pricing & Packages','What is Hijama?','Female Therapist','Location & Hours','Contact Us']
+      replies: ['Book a Session','Pricing & Packages','What is Hijama?','Male Therapist','Female Therapist','Location & Hours','Contact Us']
     },
     'Book a Session': {
-      bot: "We'd love to have you!\n\nYou can book on our website or message us on WhatsApp and we'll confirm within 24 hours.",
+      bot: "We'd love to have you!\n\nYou can book on our website or message us on WhatsApp href='https://wa.me/12816668182' and we'll confirm within 24 hours.",
       replies: ['See Pricing','First Session Tips','Back to Menu'],
       wa: "Hi! I'd like to book a Hijama session."
     },
@@ -28,18 +28,24 @@
       replies: ['Book a Session','Back to Menu'],
       wa: 'Hi! I have questions about the Hijama experience.'
     },
-    'Female Therapist': {
+    'Male Therapist': {
+      bot: 'Yes! We have a dedicated licensed male therapist (Brother Imtiaz Ahmad) for our male clients.\n\nAll male sessions are conducted in full privacy and comfort.',
+      replies: ['Book a Session','Pricing & Packages','Back to Menu'],
+      wa: 'Hi! I would like to book with the female therapist.'
+    },
+     'Female Therapist': {
       bot: 'Yes! We have a dedicated licensed female therapist (Sister Tabassum) for our female clients.\n\nAll female sessions are conducted in full privacy and comfort.',
       replies: ['Book a Session','Pricing & Packages','Back to Menu'],
       wa: 'Hi! I would like to book with the female therapist.'
     },
+   
     'Location & Hours': {
-      bot: 'Location: Katy, Houston TX\nExact address shared on booking confirmation.\n\nHours: By appointment only\n\nPhone: (281) 666-8182\nEmail: alshifahijama@gmail.com',
+      bot: 'Location: 21330 Willow Glade Dr, Katy, TX.\n\nHours: By appointment only, open all 7 days\n\nPhone: +1 (281) 666-8182\nEmail: alshifahijamausa@gmail.com',
       replies: ['Book a Session','Contact Us','Back to Menu'],
       wa: 'Hi! I would like to know your location and hours.'
     },
     'Contact Us': {
-      bot: 'Reach us:\n\nWhatsApp: (281) 666-8182\nCall: (281) 666-8182\nEmail: alshifahijama@gmail.com\n\nWe typically respond within 1 hour.',
+      bot: 'Reach us:\n\nWhatsApp: +1 (281) 666-8182\nCall: +1 (281) 666-8182\nEmail: alshifahijamausa@gmail.com\n\nWe typically respond within 1 hour.',
       replies: ['Book a Session','Back to Menu'],
       wa: 'Hi! I would like to contact Al Shifa Hijama.'
     },
