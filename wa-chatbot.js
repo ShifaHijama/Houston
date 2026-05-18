@@ -9,7 +9,7 @@
       replies: ['Book a Session','Pricing & Packages','What is Hijama?','Male Therapist','Female Therapist','Location & Hours','Contact Us']
     },
     'Book a Session': {
-      bot: "We'd love to have you!\n\nYou can book on our website or message us on WhatsApp href='https://wa.me/12816668182' and we'll confirm within 24 hours.",
+      bot: "We'd love to have you!\n\nMessage us on <a href='https://wa.me/12816668182' target='_blank' style='color:#075E54;font-weight:700;'>WhatsApp</a> or call <a href='tel:2816668182' style='color:#075E54;font-weight:700;'>(281) 666-8182</a> and we'll confirm within 24 hours.",
       replies: ['See Pricing','First Session Tips','Back to Menu'],
       wa: "Hi! I'd like to book a Hijama session."
     },
@@ -45,7 +45,7 @@
       wa: 'Hi! I would like to know your location and hours.'
     },
     'Contact Us': {
-      bot: 'Reach us:\n\nWhatsApp: +1 (281) 666-8182\nCall: +1 (281) 666-8182\nEmail: alshifahijamausa@gmail.com\n\nWe typically respond within 1 hour.',
+      bot: "Reach us:\n\n<a href='https://wa.me/12816668182' target='_blank' style='color:#075E54;font-weight:700;'>WhatsApp: +1 (281) 666-8182</a>\n<a href='tel:2816668182' style='color:#075E54;font-weight:700;'>Call: +1 (281) 666-8182</a>\nEmail: alshifahijamausa@gmail.com\n\nWe typically respond within 1 hour.",
       replies: ['Book a Session','Back to Menu'],
       wa: 'Hi! I would like to contact Al Shifa Hijama.'
     },
