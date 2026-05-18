@@ -31,7 +31,7 @@
     'Male Therapist': {
       bot: 'Yes! We have a dedicated licensed male therapist (Brother Imtiaz Ahmad) for our male clients.\n\nAll male sessions are conducted in full privacy and comfort.',
       replies: ['Book a Session','Pricing & Packages','Back to Menu'],
-      wa: 'Hi! I would like to book with the female therapist.'
+      wa: 'Hi! I would like to book with the Male therapist.'
     },
      'Female Therapist': {
       bot: 'Yes! We have a dedicated licensed female therapist (Sister Tabassum) for our female clients.\n\nAll female sessions are conducted in full privacy and comfort.',
