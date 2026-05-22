@@ -77,7 +77,7 @@
     '#wab-btn svg{width:30px;height:30px;fill:#fff}',
     '#wab-dot{position:absolute;top:1px;right:1px;width:13px;height:13px;border-radius:50%;background:#f44;border:2px solid #fff;animation:wab-pulse 1.8s infinite}',
     '@keyframes wab-pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.35)}}',
-    '#wab-box{position:fixed;bottom:92px;right:24px;z-index:99998;width:330px;max-height:500px;border-radius:16px;background:#fff;box-shadow:0 8px 40px rgba(0,0,0,.2);display:flex;flex-direction:column;overflow:hidden;opacity:0;pointer-events:none;transform:translateY(12px);transition:opacity .25s,transform .25s}',
+    '#wab-box{position:fixed;bottom:226px;right:24px;z-index:99998;width:330px;max-height:500px;border-radius:16px;background:#fff;box-shadow:0 8px 40px rgba(0,0,0,.2);display:flex;flex-direction:column;overflow:hidden;opacity:0;pointer-events:none;transform:translateY(12px);transition:opacity .25s,transform .25s}',
     '#wab-box.wab-open{opacity:1;pointer-events:all;transform:translateY(0)}',
     '#wab-head{background:#075E54;padding:12px 14px;display:flex;align-items:center;gap:10px}',
     '#wab-av{width:40px;height:40px;border-radius:50%;background:#128C7E;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}',
@@ -100,15 +100,15 @@
     '.wab-qb:hover{background:#25D366;color:#fff}',
     '#wab-wa{margin:0 10px 10px;padding:10px;background:#25D366;color:#fff;border:none;border-radius:9px;font-size:.85rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px;text-decoration:none;font-family:sans-serif;transition:background .15s}',
     '#wab-wa:hover{background:#1da851}',
-    '@media(max-width:480px){#wab-box{width:calc(100vw - 28px);right:14px;bottom:84px}#wab-btn{bottom:16px;right:16px}#wab-call-btn{bottom:16px;right:84px}#wab-book-btn{bottom:16px;right:154px}}',
+    '@media(max-width:480px){#wab-box{width:calc(100vw - 28px);right:14px;bottom:230px}#wab-btn{bottom:16px;right:16px}#wab-call-btn{bottom:84px;right:16px}#wab-book-btn{bottom:150px;right:16px}}',
     /* Stack of action buttons */
-    '#wab-call-btn{position:fixed;bottom:24px;right:92px;z-index:99999;width:52px;height:52px;border-radius:50%;background:#1B4332;box-shadow:0 4px 18px rgba(27,67,50,.5);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .2s;text-decoration:none;}',
+    '#wab-call-btn{position:fixed;bottom:92px;right:24px;z-index:99999;width:52px;height:52px;border-radius:50%;background:#1B4332;box-shadow:0 4px 18px rgba(27,67,50,.5);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .2s;text-decoration:none;}',
     '#wab-call-btn:hover{transform:scale(1.1)}',
     '#wab-call-btn svg{width:24px;height:24px;fill:#fff}',
-    '#wab-book-btn{position:fixed;bottom:24px;right:154px;z-index:99999;width:52px;height:52px;border-radius:50%;background:#C9A84C;box-shadow:0 4px 18px rgba(201,168,76,.5);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .2s;text-decoration:none;}',
+    '#wab-book-btn{position:fixed;bottom:158px;right:24px;z-index:99999;width:52px;height:52px;border-radius:50%;background:#C9A84C;box-shadow:0 4px 18px rgba(201,168,76,.5);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .2s;text-decoration:none;}',
     '#wab-book-btn:hover{transform:scale(1.1)}',
     '#wab-book-btn svg{width:24px;height:24px;fill:#fff}',
-    '.wab-fab-tip{position:absolute;bottom:60px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.72);color:#fff;font-size:.68rem;font-family:sans-serif;white-space:nowrap;padding:4px 9px;border-radius:6px;pointer-events:none;opacity:0;transition:opacity .2s}',
+    '.wab-fab-tip{position:absolute;right:60px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.72);color:#fff;font-size:.68rem;font-family:sans-serif;white-space:nowrap;padding:4px 9px;border-radius:6px;pointer-events:none;opacity:0;transition:opacity .2s}',
     '#wab-call-btn:hover .wab-fab-tip,#wab-book-btn:hover .wab-fab-tip{opacity:1}',
     '@media(max-width:480px){#wab-call-btn{right:88px;bottom:16px}#wab-book-btn{right:150px;bottom:16px}}'
   ].join('');
