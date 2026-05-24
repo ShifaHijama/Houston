@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Your Session | Al Shifa Hijama — Katy, Houston TX</title>
+  <meta name="description" content="Book your Hijama or cupping therapy session online at Al Shifa Hijama, Katy Houston TX. Certified male and female therapists. Same-day confirmation.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.alshifahijama.com/booking.html">
+
+  <!-- Fonts — match main site -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── TOKENS (match main site) ── */
+    :root {
+      --g1:#081C15; --g2:#1B4332; --g3:#2D6A4F; --g4:#40916C;
+      --g5:#52B788; --g6:#74C69D; --g7:#C9A84C; --g8:#D8F3DC;
+      --g9:#F0FAF3; --cream:#FFFDF7; --deep:#040D07;
+      --white:#ffffff; --muted:#6B7280;
+      --r:8px; --rl:14px;
+      --shadow: 0 8px 32px rgba(27,67,50,.12);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--g1);
+      color: var(--white);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── BACKGROUND TEXTURE ── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 10% 20%, rgba(45,106,79,.18) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 90% 80%, rgba(201,168,76,.07) 0%, transparent 55%),
+        radial-gradient(ellipse 40% 40% at 50% 50%, rgba(27,67,50,.3) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(8,28,21,.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(82,183,136,.12);
+      padding: 0 3rem; height: 68px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: .75rem;
+      text-decoration: none;
+    }
+    .nav-logo img { height: 38px; width: 38px; border-radius: 50%; object-fit: cover; }
+    .nav-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem; color: var(--g5); font-weight: 600;
+      line-height: 1.2;
+    }
+    .nav-brand span { display: block; font-size: .7rem; color: var(--g7); font-family: 'DM Sans', sans-serif; font-weight: 400; letter-spacing: .06em; text-transform: uppercase; }
+    .nav-back {
+      display: inline-flex; align-items: center; gap: .5rem;
+      color: rgba(255,255,255,.6); font-size: .85rem; text-decoration: none;
+      transition: color .2s;
+    }
+    .nav-back:hover { color: var(--g5); }
+    .nav-back svg { width: 16px; height: 16px; }
+
+    /* ── PAGE WRAPPER ── */
+    .page {
+      position: relative; z-index: 1;
+      min-height: calc(100vh - 68px);
+      display: flex; flex-direction: column; align-items: center;
+      padding: 3rem 1.5rem 4rem;
+    }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      text-align: center; max-width: 580px; margin-bottom: 2.5rem;
+      animation: fadeUp .6s ease both;
+    }
+    .sec-lbl {
+      display: inline-block;
+      font-size: .72rem; font-weight: 600; letter-spacing: .14em;
+      text-transform: uppercase; color: var(--g7);
+      margin-bottom: .75rem;
+    }
+    .page-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      font-weight: 700; line-height: 1.18;
+      margin-bottom: .8rem;
+    }
+    .page-header h1 em { font-style: italic; color: var(--g6); }
+    .page-header p {
+      color: rgba(255,255,255,.55); font-size: .95rem;
+      font-weight: 300; line-height: 1.7;
+    }
+
+    /* ── QUICK CONTACT STRIP ── */
+    .quick-strip {
+      display: flex; gap: .75rem; flex-wrap: wrap; justify-content: center;
+      margin-bottom: 2.5rem;
+      animation: fadeUp .6s .1s ease both;
+    }
+    .qs-btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .65rem 1.3rem; border-radius: 50px;
+      font-size: .83rem; font-weight: 500; text-decoration: none;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .qs-btn:hover { transform: translateY(-2px); }
+    .qs-wa  { background: #25D366; color: #fff; box-shadow: 0 4px 14px rgba(37,211,102,.3); }
+    .qs-tel { background: rgba(255,255,255,.08); color: rgba(255,255,255,.8); border: 1px solid rgba(255,255,255,.15); }
+    .qs-tel:hover { background: rgba(255,255,255,.13); }
+
+    /* ── FORM CARD ── */
+    .form-card {
+      background: var(--white);
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.25), 0 1px 0 rgba(255,255,255,.1) inset;
+      width: 100%; max-width: 680px;
+      overflow: hidden;
+      animation: fadeUp .6s .2s ease both;
+    }
+
+    .form-card-head {
+      background: linear-gradient(135deg, var(--g2) 0%, var(--g3) 100%);
+      padding: 1.6rem 2rem;
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .fch-icon {
+      width: 46px; height: 46px; border-radius: 50%;
+      background: rgba(255,255,255,.15);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; flex-shrink: 0;
+    }
+    .fch-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem; font-weight: 600; color: #fff;
+    }
+    .fch-sub { font-size: .78rem; color: rgba(255,255,255,.6); margin-top: 2px; }
+
+    /* ── FORM BODY ── */
+    .form-body { padding: 2rem; }
+
+    .appt-success {
+      display: none; text-align: center; padding: 2.5rem 1rem;
+    }
+    .appt-success-icon {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--g4), var(--g3));
+      color: #fff; font-size: 1.8rem;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.2rem;
+      box-shadow: 0 8px 24px rgba(64,145,108,.3);
+    }
+    .appt-success-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem; color: var(--g2); margin-bottom: .6rem;
+    }
+    .appt-success-msg {
+      font-size: .9rem; color: var(--muted); line-height: 1.65;
+      max-width: 380px; margin: 0 auto 1.5rem;
+    }
+
+    /* ── FORM ROWS ── */
+    .appt-row {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem;
+      margin-bottom: 1.1rem;
+    }
+    .appt-row--full { grid-template-columns: 1fr; }
+
+    .appt-field { display: flex; flex-direction: column; gap: .38rem; }
+
+    .appt-label {
+      font-size: .78rem; font-weight: 600; color: var(--g2);
+      letter-spacing: .02em; text-transform: uppercase;
+    }
+    .req { color: #e53e3e; }
+
+    .appt-input {
+      width: 100%; padding: .72rem 1rem;
+      border: 1.5px solid #e2e8f0; border-radius: var(--r);
+      font-family: 'DM Sans', sans-serif; font-size: .9rem;
+      color: #1a1a1a; background: #fafafa;
+      transition: border-color .2s, box-shadow .2s;
+      outline: none;
+    }
+    .appt-input:focus {
+      border-color: var(--g4);
+      box-shadow: 0 0 0 3px rgba(64,145,108,.12);
+      background: #fff;
+    }
+    .appt-input.invalid { border-color: #e53e3e; }
+    .appt-select { cursor: pointer; }
+    .appt-textarea { resize: vertical; min-height: 72px; }
+
+    /* Radio pills */
+    .appt-radio-group { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .appt-radio { cursor: pointer; }
+    .appt-radio input { display: none; }
+    .appt-radio-btn {
+      display: inline-block; padding: .48rem .95rem;
+      border: 1.5px solid #e2e8f0; border-radius: 50px;
+      font-size: .82rem; font-weight: 500; color: #555;
+      transition: all .18s; user-select: none;
+    }
+    .appt-radio input:checked + .appt-radio-btn {
+      background: var(--g3); border-color: var(--g3);
+      color: #fff; box-shadow: 0 2px 8px rgba(45,106,79,.25);
+    }
+    .appt-radio-btn:hover { border-color: var(--g4); color: var(--g3); }
+    .appt-radio.invalid-radio .appt-radio-btn { border-color: #e53e3e; }
+
+    /* Errors */
+    .appt-err {
+      font-size: .76rem; color: #e53e3e;
+      display: none;
+    }
+    .appt-err.show { display: block; }
+
+    /* Notice */
+    .appt-notice {
+      font-size: .78rem; color: var(--muted);
+      background: var(--g9); border-radius: var(--r);
+      padding: .75rem 1rem; margin: .5rem 0 1.2rem;
+      border-left: 3px solid var(--g5); line-height: 1.55;
+    }
+
+    /* Submit */
+    .appt-submit-btn {
+      width: 100%; padding: 1rem;
+      background: linear-gradient(135deg, var(--g3), var(--g2));
+      color: #fff; border: none; border-radius: var(--r);
+      font-family: 'DM Sans', sans-serif;
+      font-size: .95rem; font-weight: 600; letter-spacing: .02em;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(27,67,50,.35);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .appt-submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(27,67,50,.45);
+    }
+    .appt-submit-btn:disabled { opacity: .7; cursor: not-allowed; transform: none; }
+
+    /* ── TRUST BADGES ── */
+    .trust-row {
+      display: flex; flex-wrap: wrap; gap: 1.2rem;
+      justify-content: center; margin-top: 2rem;
+      animation: fadeUp .6s .35s ease both;
+    }
+    .trust-badge {
+      display: flex; align-items: center; gap: .5rem;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(82,183,136,.15);
+      border-radius: 50px; padding: .5rem 1rem;
+      font-size: .78rem; color: rgba(255,255,255,.55);
+    }
+    .trust-badge span { font-size: 1rem; }
+
+    /* ── FOOTER ── */
+    .pg-footer {
+      position: relative; z-index: 1;
+      text-align: center; padding: 1.5rem;
+      border-top: 1px solid rgba(82,183,136,.1);
+      color: rgba(255,255,255,.2); font-size: .75rem;
+    }
+    .pg-footer a { color: rgba(82,183,136,.5); text-decoration: none; }
+    .pg-footer a:hover { color: var(--g5); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 600px) {
+      nav { padding: 0 1.2rem; }
+      .page { padding: 2rem 1rem 3rem; }
+      .appt-row { grid-template-columns: 1fr; }
+      .form-body { padding: 1.4rem; }
+      .form-card-head { padding: 1.2rem 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="https://www.alshifahijama.com" class="nav-logo">
+    <img src="images/AlShifaLogo3D.JPG" alt="Al Shifa Hijama Logo" onerror="this.style.display='none'">
+    <div class="nav-brand">
+      Al Shifa Hijama
+      <span>Katy · Houston TX</span>
+    </div>
+  </a>
+  <a href="https://www.alshifahijama.com" class="nav-back">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Back to Website
+  </a>
+</nav>
+
+<!-- PAGE -->
+<main class="page">
+
+  <!-- Header -->
+  <div class="page-header">
+    <div class="sec-lbl">&#9670; Online Booking</div>
+    <h1>Book Your <em>Healing</em> Session</h1>
+    <p>Fill in the form below and we'll confirm your Hijama or cupping therapy appointment within 24 hours via WhatsApp or call.</p>
+  </div>
+
+  <!-- Quick contact -->
+  <div class="quick-strip">
+    <a href="https://wa.me/12816668182" class="qs-btn qs-wa" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.549 4.107 1.51 5.84L.057 23.428a.5.5 0 00.609.61l5.652-1.437A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.807 9.807 0 01-5.031-1.383l-.36-.214-3.733.949.98-3.646-.235-.374A9.818 9.818 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+      WhatsApp Us Instead
+    </a>
+    <a href="tel:2816668182" class="qs-btn qs-tel">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.59.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.59 1 1 0 01-.25 1.01l-2.2 2.19z"/></svg>
+      (281) 666-8182
+    </a>
+  </div>
+
+  <!-- Form Card -->
+  <div class="form-card">
+
+    <div class="form-card-head">
+      <div class="fch-icon">&#128203;</div>
+      <div>
+        <div class="fch-title">Online Appointment Request</div>
+        <div class="fch-sub">We'll confirm your session within 24 hours via WhatsApp or call.</div>
+      </div>
+    </div>
+
+    <div class="form-body">
+
+      <!-- Success state -->
+      <div id="appt-success" class="appt-success">
+        <div class="appt-success-icon">&#10003;</div>
+        <div class="appt-success-title">Appointment Request Sent!</div>
+        <div class="appt-success-msg">JazakAllah Khair! We've received your request and will confirm your session within 24 hours via WhatsApp or call.</div>
+        <button class="appt-submit-btn" onclick="resetAppt()" style="max-width:240px;margin:0 auto;display:block;">Book Another Session</button>
+      </div>
+
+      <!-- Form -->
+      <form id="appt-form" class="appt-form" novalidate>
+
+        <div class="appt-row">
+          <div class="appt-field">
+            <label class="appt-label" for="f-name">Full Name <span class="req">*</span></label>
+            <input class="appt-input" type="text" id="f-name" placeholder="e.g. Mohammed Ahmed" required autocomplete="name">
+            <div class="appt-err" id="err-name">Please enter your full name.</div>
+          </div>
+          <div class="appt-field">
+            <label class="appt-label" for="f-phone">Phone Number <span class="req">*</span></label>
+            <input class="appt-input" type="tel" id="f-phone" placeholder="e.g. (281) 555-0123" required autocomplete="tel">
+            <div class="appt-err" id="err-phone">Please enter your phone number.</div>
+          </div>
+        </div>
+
+        <div class="appt-row">
+          <div class="appt-field">
+            <label class="appt-label">Patient Gender <span class="req">*</span></label>
+            <div class="appt-radio-group">
+              <label class="appt-radio"><input type="radio" name="appt-gender" value="Male" required><span class="appt-radio-btn">&#9794; Male</span></label>
+              <label class="appt-radio"><input type="radio" name="appt-gender" value="Female"><span class="appt-radio-btn">&#9792; Female</span></label>
+              <label class="appt-radio"><input type="radio" name="appt-gender" value="Prefer not to say"><span class="appt-radio-btn">&#129296; Prefer not to say</span></label>
+            </div>
+            <div class="appt-err" id="err-gender">Please select a gender.</div>
+          </div>
+          <div class="appt-field">
+            <label class="appt-label" for="f-age">Age</label>
+            <input class="appt-input" type="number" id="f-age" placeholder="e.g. 35" min="1" max="110" autocomplete="off">
+          </div>
+        </div>
+
+        <div class="appt-row">
+          <div class="appt-field">
+            <label class="appt-label" for="f-date">Preferred Date</label>
+            <input class="appt-input" type="date" id="f-date" autocomplete="off">
+          </div>
+          <div class="appt-field">
+            <label class="appt-label">Preferred Time Slot</label>
+            <div class="appt-radio-group">
+              <label class="appt-radio"><input type="radio" name="appt-time" value="Morning"><span class="appt-radio-btn">&#127749; Morning</span></label>
+              <label class="appt-radio"><input type="radio" name="appt-time" value="Evening"><span class="appt-radio-btn">&#127750; Evening</span></label>
+            </div>
+          </div>
+        </div>
+
+        <div class="appt-row appt-row--full">
+          <div class="appt-field">
+            <label class="appt-label" for="f-package">Wellness Package</label>
+            <select class="appt-input appt-select" id="f-package" name="entry.325587835">
+              <option value="" disabled selected>— Select a package —</option>
+              <option value="Hijama (Wet Cupping) - $99">Hijama (Wet Cupping) — $99</option>
+              <option value="Dry Cupping - $89">Dry Cupping — $89</option>
+              <option value="Silver Package - $459">Silver Package — $459</option>
+              <option value="Gold Package - $900">Gold Package — $900</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="appt-row appt-row--full">
+          <div class="appt-field">
+            <label class="appt-label" for="f-medical">Medical Conditions (if any)</label>
+            <textarea class="appt-input appt-textarea" id="f-medical" placeholder="e.g. diabetes, hypertension, blood thinners..." rows="2"></textarea>
+          </div>
+        </div>
+
+        <div class="appt-row appt-row--full">
+          <div class="appt-field">
+            <label class="appt-label" for="f-reason">Reason for Visit</label>
+            <textarea class="appt-input appt-textarea" id="f-reason" placeholder="e.g. back pain, detoxification, stress relief, Sunnah practice..." rows="2"></textarea>
+          </div>
+        </div>
+
+        <p class="appt-notice">&#128274; Your information is private and submitted securely to Al Shifa Hijama only. We never share your data.</p>
+
+        <button type="submit" class="appt-submit-btn" id="appt-submit">
+          <span id="submit-label">Send Appointment Request &#10022;</span>
+          <span id="submit-loading" style="display:none">Sending&#8230;</span>
+        </button>
+
+      </form>
+    </div><!-- /form-body -->
+  </div><!-- /form-card -->
+
+  <!-- Trust badges -->
+  <div class="trust-row">
+    <div class="trust-badge"><span>&#128994;</span> Open 7 Days · By Appointment</div>
+    <div class="trust-badge"><span>&#9989;</span> Certified Male &amp; Female Therapists</div>
+    <div class="trust-badge"><span>&#127981;</span> Sterile Single-Use Equipment</div>
+    <div class="trust-badge"><span>&#9734;</span> Sunnah-Based Practice</div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="pg-footer">
+  <p>&copy; 2025 Al Shifa Business LLC &nbsp;|&nbsp; 21330 Willow Glade Dr, Katy TX &nbsp;|&nbsp;
+    <a href="https://www.alshifahijama.com">alshifahijama.com</a> &nbsp;|&nbsp;
+    <a href="tel:2816668182">(281) 666-8182</a>
+  </p>
+</footer>
+
+<script>
+  const GFORM_URL = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdHWWhPF3OsFKv_5m8DxwKCPC_laSI_p9UU26GDgqWTyo5SYw/formResponse";
+
+  const ENTRY = {
+    name:    "entry.1122374748",
+    phone:   "entry.1035329787",
+    gender:  "entry.182727465",
+    age:     "entry.1638725309",
+    date:    "entry.288490345",
+    time:    "entry.102507766",
+    package: "entry.325587835",
+    medical: "entry.800238507",
+    reason:  "entry.265277855"
+  };
+
+  function clearErrors() {
+    document.querySelectorAll(".appt-err").forEach(function(e) { e.classList.remove("show"); });
+    document.querySelectorAll(".appt-input").forEach(function(e) { e.classList.remove("invalid"); });
+    document.querySelectorAll(".appt-radio").forEach(function(e) { e.classList.remove("invalid-radio"); });
+  }
+
+  function validateForm() {
+    var valid = true;
+    clearErrors();
+
+    var name = document.getElementById("f-name");
+    if (!name.value.trim()) {
+      name.classList.add("invalid");
+      document.getElementById("err-name").classList.add("show");
+      valid = false;
+    }
+
+    var phone = document.getElementById("f-phone");
+    if (!phone.value.trim()) {
+      phone.classList.add("invalid");
+      document.getElementById("err-phone").classList.add("show");
+      valid = false;
+    }
+
+    var genderChecked = document.querySelector('input[name="appt-gender"]:checked');
+    if (!genderChecked) {
+      document.querySelectorAll(".appt-radio").forEach(function(r) {
+        if (r.querySelector('input[name="appt-gender"]')) r.classList.add("invalid-radio");
+      });
+      document.getElementById("err-gender").classList.add("show");
+      valid = false;
+    }
+
+    return valid;
+  }
+
+  function resetAppt() {
+    document.getElementById("appt-form").reset();
+    document.getElementById("appt-form").style.display = "";
+    document.getElementById("appt-success").style.display = "none";
+    clearErrors();
+  }
+
+  // Set min date to today
+  var dateInput = document.getElementById("f-date");
+  if (dateInput) {
+    var today = new Date().toISOString().split("T")[0];
+    dateInput.setAttribute("min", today);
+  }
+
+  // Read ?package= from URL and pre-select
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var pkg = params.get("package");
+    if (pkg) {
+      var sel = document.getElementById("f-package");
+      if (sel) sel.value = pkg;
+    }
+  })();
+
+  document.getElementById("appt-form").addEventListener("submit", async function(e) {
+    e.preventDefault();
+    if (!validateForm()) return;
+
+    var btn = document.getElementById("appt-submit");
+    document.getElementById("submit-label").style.display = "none";
+    document.getElementById("submit-loading").style.display = "";
+    btn.disabled = true;
+
+    var fd = new FormData();
+    var get = function(id) { return document.getElementById(id) ? document.getElementById(id).value : ""; };
+    var getRadio = function(name) {
+      var el = document.querySelector('input[name="' + name + '"]:checked');
+      return el ? el.value : "";
+    };
+
+    fd.append(ENTRY.name,    get("f-name"));
+    fd.append(ENTRY.phone,   get("f-phone"));
+    fd.append(ENTRY.gender,  getRadio("appt-gender"));
+    fd.append(ENTRY.age,     get("f-age"));
+    fd.append(ENTRY.date,    get("f-date"));
+    fd.append(ENTRY.time,    getRadio("appt-time"));
+    fd.append(ENTRY.package, get("f-package"));
+    fd.append(ENTRY.medical, get("f-medical"));
+    fd.append(ENTRY.reason,  get("f-reason"));
+
+    try {
+      await fetch(GFORM_URL, { method: "POST", mode: "no-cors", body: fd });
+      document.getElementById("appt-form").style.display = "none";
+      document.getElementById("appt-success").style.display = "";
+    } catch (err) {
+      document.getElementById("appt-form").style.display = "none";
+      document.getElementById("appt-success").style.display = "";
+    }
+  });
+</script>
+
+</body>
+</html>
