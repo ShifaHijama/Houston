@@ -283,6 +283,70 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
+    /* ── FEMALE CONDITIONS MODAL ── */
+    #female-modal-overlay {
+      display: none; position: fixed; inset: 0; z-index: 9999;
+      background: rgba(4,13,7,.75); backdrop-filter: blur(4px);
+      align-items: center; justify-content: center; padding: 1.5rem;
+    }
+    #female-modal-overlay.open { display: flex; animation: fadeIn .25s ease; }
+    @keyframes fadeIn { from{opacity:0} to{opacity:1} }
+    #female-modal {
+      background: var(--white); border-radius: 20px;
+      max-width: 440px; width: 100%;
+      box-shadow: 0 24px 64px rgba(0,0,0,.35);
+      overflow: hidden; animation: slideUp .28s ease;
+    }
+    @keyframes slideUp { from{transform:translateY(20px);opacity:0} to{transform:translateY(0);opacity:1} }
+    .fml-head {
+      background: linear-gradient(135deg, var(--g2), var(--g3));
+      padding: 1.3rem 1.6rem; display: flex; align-items: center; gap: .9rem;
+    }
+    .fml-icon {
+      width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0;
+      background: rgba(255,255,255,.15);
+      display: flex; align-items: center; justify-content: center; font-size: 1.4rem;
+    }
+    .fml-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem; font-weight: 700; color: #fff;
+    }
+    .fml-subtitle { font-size: .75rem; color: rgba(255,255,255,.6); margin-top: 2px; }
+    .fml-body { padding: 1.6rem; }
+    .fml-intro {
+      font-size: .88rem; color: var(--muted); margin-bottom: 1.1rem;
+      line-height: 1.55;
+    }
+    .fml-conditions { list-style: none; display: flex; flex-direction: column; gap: .75rem; margin-bottom: 1.4rem; }
+    .fml-condition {
+      display: flex; align-items: flex-start; gap: .85rem;
+      background: var(--g9); border-radius: var(--r);
+      padding: .85rem 1rem; border-left: 3px solid var(--g5);
+    }
+    .fml-cnum {
+      width: 26px; height: 26px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--g3), var(--g4));
+      color: #fff; font-size: .75rem; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .fml-ctext { font-size: .87rem; color: #2d3748; line-height: 1.5; }
+    .fml-ctext strong { color: var(--g2); }
+    .fml-note {
+      font-size: .78rem; color: var(--muted); background: #fff8e1;
+      border-radius: var(--r); padding: .7rem .9rem;
+      border-left: 3px solid var(--g7); line-height: 1.55;
+      margin-bottom: 1.4rem;
+    }
+    .fml-ok-btn {
+      width: 100%; padding: .9rem;
+      background: linear-gradient(135deg, var(--g3), var(--g2));
+      color: #fff; border: none; border-radius: var(--r);
+      font-family: 'DM Sans', sans-serif; font-size: .95rem; font-weight: 700;
+      cursor: pointer; box-shadow: 0 4px 16px rgba(27,67,50,.3);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .fml-ok-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(27,67,50,.4); }
+
     /* ── MOBILE ── */
     @media (max-width: 600px) {
       nav { padding: 0 1.2rem; }
@@ -455,7 +519,67 @@
   </p>
 </footer>
 
+<!-- FEMALE CONDITIONS MODAL -->
+<div id="female-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="fml-title-id">
+  <div id="female-modal">
+    <div class="fml-head">
+      <div class="fml-icon">&#9792;</div>
+      <div>
+        <div class="fml-title" id="fml-title-id">Important Conditions for Female Patients</div>
+        <div class="fml-subtitle">Please read before booking your Hijama session</div>
+      </div>
+    </div>
+    <div class="fml-body">
+      <p class="fml-intro">For your safety and the effectiveness of the treatment, female patients must meet all three conditions below on the day of their Hijama session:</p>
+      <ul class="fml-conditions">
+        <li class="fml-condition">
+          <div class="fml-cnum">1</div>
+          <div class="fml-ctext"><strong>Not Pregnant</strong><br>Hijama is not recommended during pregnancy at any stage.</div>
+        </li>
+        <li class="fml-condition">
+          <div class="fml-cnum">2</div>
+          <div class="fml-ctext"><strong>Not Breastfeeding</strong><br>Breastfeeding mothers should wait until they have stopped nursing before undergoing Hijama.</div>
+        </li>
+        <li class="fml-condition">
+          <div class="fml-cnum">3</div>
+          <div class="fml-ctext"><strong>Not in Monthly Cycle</strong><br>The session cannot be performed on the day of or during your monthly cycle.</div>
+        </li>
+      </ul>
+      <div class="fml-note">&#9733; Please make sure you are clear on all three conditions above before confirming your appointment. If you have any questions, please WhatsApp us at <strong>(281) 666-8182</strong>.</div>
+      <button class="fml-ok-btn" onclick="closeFemaleModal()">I Understand — Continue Booking &#10003;</button>
+    </div>
+  </div>
+</div>
+
 <script>
+  // ── FEMALE CONDITIONS MODAL ────────────────────────────
+  function openFemaleModal() {
+    var overlay = document.getElementById('female-modal-overlay');
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeFemaleModal() {
+    var overlay = document.getElementById('female-modal-overlay');
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  // Close if user clicks outside the modal box
+  document.getElementById('female-modal-overlay').addEventListener('click', function(e) {
+    if (e.target === this) closeFemaleModal();
+  });
+  // Close on Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeFemaleModal();
+  });
+  // Wire Female radio button
+  var femaleRadio = document.querySelector('input[name="appt-gender"][value="Female"]');
+  if (femaleRadio) {
+    femaleRadio.addEventListener('change', function() {
+      if (this.checked) openFemaleModal();
+    });
+  }
+  // ───────────────────────────────────────────────────────
+
   const GFORM_URL = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdHWWhPF3OsFKv_5m8DxwKCPC_laSI_p9UU26GDgqWTyo5SYw/formResponse";
 
   const ENTRY = {
